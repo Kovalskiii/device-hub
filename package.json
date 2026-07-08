@@ -1,5 +1,5 @@
 {
-    "name": "device-catalog",
+    "name": "device-hub",
     "type": "module",
     "private": true,
     "scripts": {

@@ -6,7 +6,11 @@ export default defineNuxtConfig({
 
     components: [{ path: '~/components', pathPrefix: false }],
 
-    css: ['~/assets/css/reset.css', '~/assets/css/main.css'],
+    css: [
+        '~/assets/css/reset.css',
+        '~/assets/css/variables.css',
+        '~/assets/css/main.css',
+    ],
 
     app: {
         head: {
