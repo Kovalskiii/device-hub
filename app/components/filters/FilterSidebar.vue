@@ -79,10 +79,12 @@
             ((max.value - DEVICE_PRICE_LIMITS.min) /
                 (DEVICE_PRICE_LIMITS.max - DEVICE_PRICE_LIMITS.min)) *
             100
+        const clampedMin = Math.max(0, Math.min(100, minPercent))
+        const clampedMax = Math.max(0, Math.min(100, maxPercent))
 
         return {
-            '--price-min': `${Math.max(0, Math.min(100, minPercent))}%`,
-            '--price-max': `${Math.max(0, Math.min(100, maxPercent))}%`,
+            '--price-min': `${clampedMin}%`,
+            '--price-max': `${clampedMax}%`,
         }
     })
 

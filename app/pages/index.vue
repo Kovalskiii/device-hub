@@ -159,8 +159,11 @@
 
 <template>
     <main class="catalog-page">
-        <SiteHeader show-search />
+        <SiteHeader v-model:search="searchInput" show-search />
+
         <div class="page-content">
+            <CatalogHero />
+
             <FiltersModal
                 :is-modal-open="isFiltersModalOpen"
                 :facets="data.facets"

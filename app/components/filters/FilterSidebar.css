@@ -161,6 +161,12 @@
 }
 
 .filter-sidebar__range {
+    --range-thumb-size: 14px;
+    --range-thumb-radius: calc(var(--range-thumb-size) / 2);
+    --range-track-height: 4px;
+    --range-center-offset: 2px;
+    --range-thumb-offset: 0px;
+
     position: relative;
     height: 28px;
     margin: 0 3px 14px;
@@ -169,10 +175,11 @@
 .filter-sidebar__range::before {
     content: '';
     position: absolute;
-    top: 13px;
-    right: 0;
-    left: 0;
-    height: 3px;
+    top: calc(50% + var(--range-center-offset));
+    right: var(--range-thumb-radius);
+    left: var(--range-thumb-radius);
+    height: var(--range-track-height);
+    transform: translateY(-50%);
     background: var(--color-border);
     border-radius: 999px;
 }
@@ -180,10 +187,11 @@
 .filter-sidebar__range::after {
     content: '';
     position: absolute;
-    top: 13px;
-    right: calc(100% - var(--price-max));
-    left: var(--price-min);
-    height: 3px;
+    top: calc(50% + var(--range-center-offset));
+    right: calc(var(--range-thumb-radius) + 100% - var(--price-max));
+    left: calc(var(--range-thumb-radius) + var(--price-min));
+    height: var(--range-track-height);
+    transform: translateY(-50%);
     background: var(--color-primary);
     border-radius: 999px;
 }
@@ -201,11 +209,30 @@
     border: 0;
 }
 
-.filter-sidebar__range input::-webkit-slider-thumb,
-.filter-sidebar__range input::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
+.filter-sidebar__range input::-webkit-slider-thumb {
+    width: var(--range-thumb-size);
+    height: var(--range-thumb-size);
     appearance: none;
+    margin-top: calc((var(--range-track-height) - var(--range-thumb-size)) / 2);
+    transform: translateY(var(--range-thumb-offset));
+    pointer-events: auto;
+    background: var(--color-primary);
+    border-radius: 999px;
+    box-shadow: 0 2px 8px
+        color-mix(in srgb, var(--color-primary) 28%, transparent);
+}
+
+.filter-sidebar__range input::-webkit-slider-runnable-track {
+    height: var(--range-track-height);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+}
+
+.filter-sidebar__range input::-moz-range-thumb {
+    width: var(--range-thumb-size);
+    height: var(--range-thumb-size);
+    transform: translateY(var(--range-thumb-offset));
     pointer-events: auto;
     background: var(--color-primary);
     border: 2px solid var(--color-surface);
@@ -214,14 +241,11 @@
         color-mix(in srgb, var(--color-primary) 28%, transparent);
 }
 
-.filter-sidebar__range input::-webkit-slider-runnable-track {
-    height: 3px;
-    background: transparent;
-}
-
 .filter-sidebar__range input::-moz-range-track {
-    height: 3px;
+    height: var(--range-track-height);
     background: transparent;
+    border: 0;
+    border-radius: 999px;
 }
 
 .filter-sidebar input::placeholder {
