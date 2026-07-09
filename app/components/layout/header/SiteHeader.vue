@@ -11,7 +11,11 @@
 <template>
     <header class="site-header">
         <NuxtLink class="site-header__logo" to="/">
-            <img src="/device-hub-logo.svg" alt="Device Hub" />
+            <img
+                src="/device-hub-logo.svg"
+                alt="Device Hub"
+                draggable="false"
+            />
         </NuxtLink>
 
         <label v-if="showSearch" class="site-header__search">

@@ -47,7 +47,7 @@
                 }),
             {
                 server: true,
-                lazy: false,
+                lazy: true,
                 watch: [apiQuery],
                 dedupe: 'cancel',
                 default: () => ({
@@ -222,8 +222,7 @@
                         ref="catalogTop"
                         class="catalog-content__top"
                         :class="{
-                            'catalog-content__top--stuck':
-                                isCatalogTopStuck,
+                            'catalog-content__top--stuck': isCatalogTopStuck,
                         }"
                     >
                         <button
