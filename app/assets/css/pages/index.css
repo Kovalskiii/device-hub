@@ -54,7 +54,7 @@
 
 .catalog-content__top {
     position: sticky;
-    top: 0px;
+    top: 64px;
     z-index: 45;
     display: grid;
     grid-template-columns: 52px minmax(0, 1fr);
@@ -68,6 +68,12 @@
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
     backdrop-filter: blur(14px);
+}
+
+.catalog-content__top--stuck {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .catalog-content__top > b {

@@ -31,6 +31,8 @@
     const { width } = useWindowSize()
     const isFiltersModalOpen = ref(false)
     const isSortDropdownOpen = ref(false)
+    const isCatalogTopStuck = ref(false)
+    const catalogTop = ref<HTMLElement | null>(null)
     const sortDropdown = ref<HTMLElement | null>(null)
 
     const apiQuery = computed(() => ({ ...filters.value }))
@@ -141,19 +143,36 @@
     const onDocumentKeydown = (event: KeyboardEvent) => {
         if (event.key === 'Escape') closeSortDropdown()
     }
+    const updateCatalogTopStuck = () => {
+        if (!catalogTop.value || isSidebarVisible.value) {
+            isCatalogTopStuck.value = false
+            return
+        }
+
+        isCatalogTopStuck.value =
+            catalogTop.value.getBoundingClientRect().top <= 64
+    }
 
     onMounted(() => {
         document.addEventListener('click', onDocumentClick)
         document.addEventListener('keydown', onDocumentKeydown)
+        window.addEventListener('scroll', updateCatalogTopStuck, {
+            passive: true,
+        })
+        window.addEventListener('resize', updateCatalogTopStuck)
+        updateCatalogTopStuck()
     })
 
     onBeforeUnmount(() => {
         document.removeEventListener('click', onDocumentClick)
         document.removeEventListener('keydown', onDocumentKeydown)
+        window.removeEventListener('scroll', updateCatalogTopStuck)
+        window.removeEventListener('resize', updateCatalogTopStuck)
     })
 
     watch(isSidebarVisible, (isVisible) => {
         if (isVisible) closeFiltersModal()
+        updateCatalogTopStuck()
     })
 </script>
 
@@ -199,7 +218,14 @@
                 />
 
                 <section class="catalog-content" aria-live="polite">
-                    <div class="catalog-content__top">
+                    <div
+                        ref="catalogTop"
+                        class="catalog-content__top"
+                        :class="{
+                            'catalog-content__top--stuck':
+                                isCatalogTopStuck,
+                        }"
+                    >
                         <button
                             class="catalog-content__filters toolbar__filters"
                             type="button"

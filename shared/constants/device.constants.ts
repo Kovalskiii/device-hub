@@ -67,10 +67,10 @@ export const DEVICE_SORT_LABELS: Record<DeviceSortValue, string> = {
 
 export const DEVICE_PRICE_LIMITS = {
     min: 0,
-    max: 100000,
-    step: 100,
+    max: 60000,
+    step: 1,
     defaultMin: 0,
-    defaultMax: 100000,
+    defaultMax: 60000,
 } as const
 
 export const DEVICE_PAGE_SIZE = {
