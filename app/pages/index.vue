@@ -33,7 +33,85 @@
     const isSortDropdownOpen = ref(false)
     const sortDropdown = ref<HTMLElement | null>(null)
 
-    const activeFilters = null
+    const apiQuery = computed(() => ({ ...filters.value }))
+    const asyncKey = computed(() => `devices:${JSON.stringify(apiQuery.value)}`)
+
+    const { data, pending, error, refresh } =
+        await useAsyncData<DevicesApiResponse>(
+            asyncKey,
+            () =>
+                $fetch<DevicesApiResponse>('/api/devices', {
+                    query: apiQuery.value,
+                }),
+            {
+                server: true,
+                lazy: false,
+                watch: [apiQuery],
+                dedupe: 'cancel',
+                default: () => ({
+                    items: [],
+                    total: 0,
+                    page: 1,
+                    limit: 8,
+                    pages: 1,
+                    facets: {
+                        brands: {},
+                        categories: {},
+                        badges: {},
+                        availability: { in: 0, out: 0 },
+                    },
+                }),
+            }
+        )
+
+    const activeFilters = computed<ActiveFilter[]>(() => {
+        const list: ActiveFilter[] = []
+
+        if (filters.value.q)
+            list.push({ key: 'q', label: `Search: ${filters.value.q}` })
+
+        filters.value.categories.forEach((value) =>
+            list.push({
+                key: 'categories',
+                value,
+                label: `Category: ${DEVICE_CATEGORY_LABELS[value as DeviceCategory]}`,
+            })
+        )
+
+        filters.value.brands.forEach((value) =>
+            list.push({ key: 'brands', value, label: `Brand: ${value}` })
+        )
+
+        filters.value.badges.forEach((value) =>
+            list.push({
+                key: 'badges',
+                value,
+                label: `Badge: ${DEVICE_BADGE_LABELS[value as DeviceBadge]}`,
+            })
+        )
+
+        filters.value.availability.forEach((value) =>
+            list.push({
+                key: 'availability',
+                value,
+                label: DEVICE_AVAILABILITY_LABELS[value as DeviceAvailability],
+            })
+        )
+
+        if (
+            filters.value.minPrice > DEVICE_PRICE_LIMITS.defaultMin ||
+            filters.value.maxPrice < DEVICE_PRICE_LIMITS.defaultMax
+        ) {
+            list.push({
+                key: 'price',
+                label: `${filters.value.minPrice}–${filters.value.maxPrice} MDL`,
+            })
+        }
+
+        return list
+    })
+
+    const activeFilterCount = computed(() => activeFilters.value.length)
 
     const isSidebarVisible = computed(() => width.value >= 768)
 
@@ -94,6 +172,27 @@
                 "
                 @remove-active="removeActiveFilter"
             />
+
+            <p v-if="error" class="catalog-page__error">
+                API error: {{ error.message }}
+                <AppButton variant="ghost" @click="refresh()">
+                    Try again
+                </AppButton>
+            </p>
+
+            <div class="catalog-layout">
+                <FilterSidebar
+                    :facets="data.facets"
+                    :filters="filters"
+                    :active-filters="activeFilters"
+                    @toggle="toggleArrayFilter"
+                    @price="
+                        (min: number, max: number) =>
+                            pushQuery({ minPrice: min, maxPrice: max })
+                    "
+                    @remove-active="removeActiveFilter"
+                />
+            </div>
         </div>
 
         <SiteFooter />
