@@ -1,0 +1,94 @@
+.filters-modal {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    min-height: 0;
+    padding: 14px;
+    overflow: hidden;
+    background: var(--color-page);
+    border-right: 1px solid var(--color-border);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: var(--shadow-panel);
+    overscroll-behavior: contain;
+}
+
+.filters-modal__header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0 14px;
+}
+
+.filters-modal__header span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.filters-modal__header h2 {
+    margin: 2px 0 0;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.filters-modal__close {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+
+.filters-modal .filter-sidebar {
+    position: static;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    max-height: 100%;
+    padding-right: 4px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filters-modal .filter-sidebar section {
+    min-width: 0;
+    box-shadow: none;
+}
+
+.filters-modal__actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 14px;
+    background: var(--color-page);
+}
+
+.filters-modal__actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    color: var(--color-primary-hover);
+    font-weight: 900;
+    background: var(--color-primary-soft);
+    border: 1px solid
+        color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+    border-radius: 8px;
+}

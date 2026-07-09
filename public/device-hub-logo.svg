@@ -38,7 +38,7 @@
   </g>
 
   <g font-family="Inter, Arial, Helvetica, sans-serif" font-weight="900" letter-spacing="-4">
-    <text x="263" y="139" font-size="101" fill="#001E5D">Device</text>
+    <text x="263" y="139" font-size="101" fill="#7A35A8">Device</text>
     <text x="263" y="241" font-size="101" fill="url(#hubBlue)">Hub</text>
   </g>
 </svg>
