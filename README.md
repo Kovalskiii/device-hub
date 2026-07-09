@@ -4,6 +4,33 @@ Device-hub is a clean and user-friendly website for exploring electronic devices
 
 Application built with **Nuxt** and **Vue**.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td>
+      <img src="./public/dark-theme.png" alt="dark-theme" width="100%" />
+    </td>
+    <td>
+      <img src="./public/dark-theme-single.png" alt="dark-theme-single" width="100%" />
+    </td>
+    <td>
+      <img src="./public/dark-theme-mobile.png" alt="dark-theme-mobile" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./public/light-theme.png" alt="light-theme" width="100%" />
+    </td>
+    <td>
+      <img src="./public/light-theme-single.png" alt=light-theme-single" width="100%" />
+    </td>
+      <td>
+      <img src="./public/light-theme-mobile.png" alt=light-theme-mobile" width="100%" />
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 📦 Used Packages
