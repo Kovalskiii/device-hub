@@ -1,0 +1,25 @@
+.app-price {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+}
+
+.app-price strong {
+    color: var(--color-primary);
+    font-size: 21px;
+    line-height: 1;
+}
+
+.app-price strong span {
+    font-size: 13px;
+}
+
+.app-price del {
+    color: var(--color-subtle);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.app-price--lg strong {
+    font-size: 34px;
+}
