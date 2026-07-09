@@ -199,6 +199,7 @@ Used chatGPT for:
 2. Project description generation
 3. Generation svg logo by project name
 4. Generation of project structure for readme
+5. Correctly write AUDIT.md
 
 ---
 
