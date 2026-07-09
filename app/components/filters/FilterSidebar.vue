@@ -43,6 +43,10 @@
         activeFilters?: ActiveFilter[]
     }>()
 
+    const { t } = useI18n()
+    const localePath = useLocalePath()
+    const { categoryLabel, badgeLabel, availabilityLabel } = useDeviceI18n()
+
     const emit = defineEmits<{
         toggle: [key: ArrayFilterKey, value: string]
         price: [min: number, max: number]
@@ -135,7 +139,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:list-filter" size="15" />
-                        Active filters
+                        {{ t('filters.active') }}
                     </span>
                     <Icon
                         :name="
@@ -161,12 +165,12 @@
                             {{ filter.label }}
                             <Icon name="lucide:x" size="14" />
                         </button>
-                        <NuxtLink to="/">
+                        <NuxtLink :to="localePath('/')">
                             <Icon name="lucide:rotate-ccw" size="14" />
-                            Clear all
+                            {{ t('common.clearAll') }}
                         </NuxtLink>
                     </template>
-                    <p v-else>No active filters</p>
+                    <p v-else>{{ t('filters.noActive') }}</p>
                 </div>
             </div>
         </section>
@@ -182,7 +186,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:layout-grid" size="15" />
-                        Categories
+                        {{ t('filters.categories') }}
                     </span>
                     <Icon
                         :name="
@@ -198,7 +202,7 @@
                 <AppCheckbox
                     v-for="category in DEVICE_CATEGORY_VALUES"
                     :key="category"
-                    :label="DEVICE_CATEGORY_LABELS[category]"
+                    :label="categoryLabel(category)"
                     :count="categoryCount(category)"
                     :model-value="filters.categories.includes(category)"
                     @update:model-value="emit('toggle', 'categories', category)"
@@ -215,7 +219,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:badge-check" size="15" />
-                        Brand
+                        {{ t('filters.brand') }}
                     </span>
                     <Icon
                         :name="
@@ -248,7 +252,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:badge-dollar-sign" size="15" />
-                        Price
+                        {{ t('filters.price') }}
                     </span>
                     <Icon
                         :name="
@@ -268,7 +272,7 @@
                         :min="DEVICE_PRICE_LIMITS.min"
                         :max="DEVICE_PRICE_LIMITS.max"
                         :step="DEVICE_PRICE_LIMITS.step"
-                        aria-label="Minimum price"
+                        :aria-label="t('filters.minimumPrice')"
                         @input="
                             setMinPrice(
                                 Number(
@@ -284,7 +288,7 @@
                         :min="DEVICE_PRICE_LIMITS.min"
                         :max="DEVICE_PRICE_LIMITS.max"
                         :step="DEVICE_PRICE_LIMITS.step"
-                        aria-label="Maximum price"
+                        :aria-label="t('filters.maximumPrice')"
                         @input="
                             setMaxPrice(
                                 Number(
@@ -301,7 +305,7 @@
                         :min="DEVICE_PRICE_LIMITS.min"
                         :max="DEVICE_PRICE_LIMITS.max"
                         :step="DEVICE_PRICE_LIMITS.step"
-                        aria-label="Minimum price slider"
+                        :aria-label="t('filters.minimumPriceSlider')"
                         @input="
                             setMinPrice(
                                 Number(
@@ -316,7 +320,7 @@
                         :min="DEVICE_PRICE_LIMITS.min"
                         :max="DEVICE_PRICE_LIMITS.max"
                         :step="DEVICE_PRICE_LIMITS.step"
-                        aria-label="Maximum price slider"
+                        :aria-label="t('filters.maximumPriceSlider')"
                         @input="
                             setMaxPrice(
                                 Number(
@@ -340,7 +344,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:package-check" size="15" />
-                        Availability
+                        {{ t('filters.availability') }}
                     </span>
                     <Icon
                         :name="
@@ -356,7 +360,7 @@
                 <AppCheckbox
                     v-for="value in DEVICE_AVAILABILITY_VALUES"
                     :key="value"
-                    :label="DEVICE_AVAILABILITY_LABELS[value]"
+                    :label="availabilityLabel(value)"
                     :count="availabilityCount(value)"
                     :model-value="filters.availability.includes(value)"
                     @update:model-value="emit('toggle', 'availability', value)"
@@ -373,7 +377,7 @@
                 >
                     <span class="filter-sidebar__title">
                         <Icon name="lucide:sparkles" size="15" />
-                        Badges
+                        {{ t('filters.badges') }}
                     </span>
                     <Icon
                         :name="
@@ -389,7 +393,7 @@
                 <AppCheckbox
                     v-for="badge in DEVICE_BADGE_VALUES"
                     :key="badge"
-                    :label="DEVICE_BADGE_LABELS[badge]"
+                    :label="badgeLabel(badge)"
                     :count="badgeCount(badge)"
                     :model-value="filters.badges.includes(badge)"
                     @update:model-value="emit('toggle', 'badges', badge)"

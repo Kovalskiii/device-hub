@@ -31,6 +31,8 @@
         price: [min: number, max: number]
         removeActive: [key: ActiveFilterKey, value?: string]
     }>()
+    const { t } = useI18n()
+    const localePath = useLocalePath()
 </script>
 
 <template>
@@ -50,13 +52,15 @@
         >
             <div class="filters-modal__header">
                 <div>
-                    <span>Device Hub</span>
-                    <h2 id="filters-modal-title">Filters</h2>
+                    <span>{{ t('common.brand') }}</span>
+                    <h2 id="filters-modal-title">
+                        {{ t('filters.modalTitle') }}
+                    </h2>
                 </div>
                 <button
                     class="filters-modal__close"
                     type="button"
-                    aria-label="Close filters"
+                    :aria-label="t('filters.closeFilters')"
                     @click="emit('close')"
                 >
                     <Icon name="lucide:x" size="19" />
@@ -75,9 +79,9 @@
             />
 
             <div class="filters-modal__actions">
-                <NuxtLink to="/" @click="emit('close')">
+                <NuxtLink :to="localePath('/')" @click="emit('close')">
                     <Icon name="lucide:rotate-ccw" size="15" />
-                    Clear
+                    {{ t('common.clear') }}
                 </NuxtLink>
             </div>
         </div>

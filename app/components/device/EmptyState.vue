@@ -1,3 +1,7 @@
+<script setup lang="ts">
+    const localePath = useLocalePath()
+</script>
+
 <template>
     <section class="empty-state">
         <div>
@@ -5,7 +9,7 @@
         </div>
         <h2>Nothing found</h2>
         <p>Try removing some filters or changing the search phrase.</p>
-        <AppButton variant="soft" @click="navigateTo('/')">
+        <AppButton variant="soft" @click="navigateTo(localePath('/'))">
             <Icon name="lucide:rotate-ccw" size="16" />
             Reset filters
         </AppButton>

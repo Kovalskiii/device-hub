@@ -17,6 +17,7 @@ Application built with **Nuxt** and **Vue**.
 - [Nuxt Icon](https://github.com/nuxt/icon) – Icon module for Vue/Nuxt components
 - [Nuxt Google Fonts](https://google-fonts.nuxtjs.org/) – Google Fonts integration
 - [Prettier](https://prettier.io/) – Code formatting tool
+- [Nuxt i18n](https://i18n.nuxtjs.org/) – Internationalization module for Nuxt
 
 ---
 
@@ -24,64 +25,94 @@ Application built with **Nuxt** and **Vue**.
 
 ```sh
 /
-├─ app/
-│  ├─ assets/              # Global CSS, variables, resets and page-level styles
+├─ app/                         # Nuxt app source
+│  ├─ assets/                   # Global styles and app assets
 │  │  └─ css/
-│  │     ├─ main.css
-│  │     ├─ reset.css
-│  │     ├─ variables.css
-│  │     └─ pages/
-│  │
-│  ├─ components/          # Reusable UI, layout, device, filter and modal components
-│  │  ├─ device/           # Device cards, loading skeletons and empty states
-│  │  ├─ filters/          # Desktop filter sidebar
-│  │  ├─ filters-modal/    # Mobile filters modal
-│  │  ├─ hero/             # Catalog hero section
-│  │  ├─ layout/           # Header and footer layout components
+│  │     ├─ pages/              # Page-specific styles
+│  │     │  ├─ device-detail.css
+│  │     │  ├─ error.css
+│  │     │  └─ index.css
+│  │     ├─ main.css            # Base application styles
+│  │     ├─ reset.css           # CSS reset
+│  │     └─ variables.css       # CSS variables and theme tokens
+│  ├─ components/               # Reusable Vue components
+│  │  ├─ device/                # Device cards, skeletons and empty state
+│  │  │  ├─ DeviceCard.vue
+│  │  │  ├─ DeviceSkeleton.vue
+│  │  │  └─ EmptyState.vue
+│  │  ├─ filters/               # Catalog filter sidebar
+│  │  │  └─ FilterSidebar.vue
+│  │  ├─ filters-modal/         # Mobile filters modal
+│  │  │  └─ FiltersModal.vue
+│  │  ├─ hero/                  # Catalog hero section
+│  │  │  └─ CatalogHero.vue
+│  │  ├─ layout/                # Layout components
 │  │  │  ├─ footer/
+│  │  │  │  └─ SiteFooter.vue
 │  │  │  └─ header/
-│  │  ├─ modal/            # Reusable modal wrapper
-│  │  └─ ui/               # Shared UI primitives
+│  │  │     └─ SiteHeader.vue
+│  │  ├─ modal/                 # Base modal component
+│  │  │  └─ Modal.vue
+│  │  └─ ui/                    # Shared UI primitives
 │  │     ├─ badge/
+│  │     │  └─ AppBadge.vue
 │  │     ├─ button/
+│  │     │  └─ AppButton.vue
 │  │     ├─ checkbox/
+│  │     │  └─ AppCheckbox.vue
 │  │     ├─ loader/
+│  │     │  └─ AppLoader.vue
 │  │     └─ price/
-│  │
-│  ├─ composables/         # Reusable Vue/Nuxt logic
-│  │  ├─ useDebouncedRef.ts
-│  │  ├─ useDeviceFilters.ts
-│  │  ├─ useTheme.ts
-│  │  └─ useWindowSize.ts
-│  │
-│  ├─ pages/               # Application pages and dynamic device details route
-│  │  ├─ index.vue
-│  │  └─ devices/
-│  │     └─ [slug].vue
-│  │
-│  ├─ utils/               # Client utility helpers
-│  ├─ app.vue              # Root application shell
-│  └─ error.vue            # Custom error / not found page
-│
-├─ public/                 # Static public assets
-│  ├─ img/                 # Device product images
+│  │        └─ AppPrice.vue
+│  ├─ composables/              # Reusable Composition API logic
+│  │  ├─ useDebouncedRef.ts     # Debounced reactive value helper
+│  │  ├─ useDeviceFilters.ts    # Catalog filter state and URL sync
+│  │  ├─ useDeviceI18n.ts       # Device/domain translation helpers
+│  │  ├─ useTheme.ts            # Theme state and switching
+│  │  └─ useWindowSize.ts       # Window size tracking
+│  ├─ layouts/                  # Nuxt layouts
+│  ├─ middleware/               # Nuxt route middleware
+│  ├─ pages/                    # File-based routes
+│  │  ├─ devices/
+│  │  │  └─ [slug].vue          # Device details page
+│  │  └─ index.vue              # Catalog page
+│  ├─ utils/                    # App utility functions
+│  ├─ app.vue                   # Root app component
+│  └─ error.vue                 # Custom Nuxt error page
+├─ i18n/                        # Localization files
+│  └─ locales/
+│     ├─ en.json
+│     ├─ ro.json
+│     └─ ru.json
+├─ public/                      # Static public assets
+│  ├─ img/                      # Device images
 │  ├─ device-hub-logo.svg
+│  ├─ favicon.ico
 │  ├─ not-found.gif
-│  └─ favicon.ico
-│
-├─ server/                 # Nitro server routes, data and server utilities
-│  ├─ api/
+│  └─ robots.txt
+├─ server/                      # Nitro server code
+│  ├─ api/                      # API routes
+│  │  ├─ devices.get.ts         # Devices list endpoint
+│  │  └─ devices/
+│  │     └─ [slug].get.ts       # Device details endpoint
 │  ├─ data/
+│  │  └─ devices.ts             # Local devices dataset
 │  └─ utils/
-│
-├─ shared/                 # Shared constants, schemas and TypeScript types
+│     └─ data.ts                # Server data helpers
+├─ shared/                      # Shared constants, schemas and types
 │  ├─ constants/
+│  │  ├─ device.constants.ts
+│  │  └─ index.ts
 │  ├─ schemas/
+│  │  ├─ device.schema.ts
+│  │  └─ index.ts
 │  └─ types/
-│
-├─ nuxt.config.ts          # Nuxt configuration
-├─ package.json            # Scripts and dependencies
-└─ tsconfig.json           # TypeScript configuration
+│     ├─ api.types.ts
+│     ├─ device.types.ts
+│     └─ index.ts
+├─ nuxt.config.ts               # Nuxt configuration
+├─ package.json                 # Scripts and dependencies
+└─ tsconfig.json                # TypeScript configuration
 
 This modular structure helps maintain a clean, scalable, and maintainable codebase.
 ```

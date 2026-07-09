@@ -2,19 +2,22 @@
     import type { Device } from '#shared/types'
     import { DEVICE_BADGE_LABELS } from '#shared/constants'
 
+    const localePath = useLocalePath()
+    const { badgeLabel, availabilityLabel } = useDeviceI18n()
+
     defineProps<{
         device: Device
     }>()
 </script>
 
 <template>
-    <NuxtLink class="device-card" :to="`/devices/${device.slug}`">
+    <NuxtLink class="device-card" :to="localePath(`/devices/${device.slug}`)">
         <AppBadge
             v-if="device.badge"
             class="device-card__badge"
             :tone="device.badge"
         >
-            {{ DEVICE_BADGE_LABELS[device.badge] }}
+            {{ badgeLabel(device.badge) }}
         </AppBadge>
 
         <div class="device-card__image-wrap">
@@ -60,7 +63,11 @@
                 class="device-card__stock"
                 :class="{ 'device-card__stock--out': !device.inStock }"
             >
-                {{ device.inStock ? 'In stock' : 'Out of stock' }}
+                {{
+                    device.inStock
+                        ? availabilityLabel('in')
+                        : availabilityLabel('out')
+                }}
             </span>
         </div>
     </NuxtLink>

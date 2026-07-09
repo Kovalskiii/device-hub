@@ -1,11 +1,14 @@
+<script setup lang="ts">
+    const { t } = useI18n()
+</script>
+
 <template>
     <section class="catalog-hero" aria-labelledby="catalog-title">
         <div>
-            <AppBadge tone="top">Mini Device Catalog</AppBadge>
-            <h1 id="catalog-title">Device Hub</h1>
+            <AppBadge tone="top">{{ t('hero.badge') }}</AppBadge>
+            <h1 id="catalog-title">{{ t('hero.title') }}</h1>
             <p>
-                Explore smartphones, wearables and accessories. Search, filter
-                and compare key specifications in one clean catalog.
+                {{ t('hero.description') }}
             </p>
         </div>
 

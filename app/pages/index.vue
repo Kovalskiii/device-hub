@@ -21,6 +21,9 @@
         value?: string
     }
 
+    const { t } = useI18n()
+    const { categoryLabel, badgeLabel, availabilityLabel, sortLabel } =
+        useDeviceI18n()
     const {
         filters,
         searchInput,
@@ -70,25 +73,36 @@
         const list: ActiveFilter[] = []
 
         if (filters.value.q)
-            list.push({ key: 'q', label: `Search: ${filters.value.q}` })
+            list.push({
+                key: 'q',
+                label: t('activeFilter.search', { value: filters.value.q }),
+            })
 
         filters.value.categories.forEach((value) =>
             list.push({
                 key: 'categories',
                 value,
-                label: `Category: ${DEVICE_CATEGORY_LABELS[value as DeviceCategory]}`,
+                label: t('activeFilter.category', {
+                    value: categoryLabel(value as DeviceCategory),
+                }),
             })
         )
 
         filters.value.brands.forEach((value) =>
-            list.push({ key: 'brands', value, label: `Brand: ${value}` })
+            list.push({
+                key: 'brands',
+                value,
+                label: t('activeFilter.brand', { value }),
+            })
         )
 
         filters.value.badges.forEach((value) =>
             list.push({
                 key: 'badges',
                 value,
-                label: `Badge: ${DEVICE_BADGE_LABELS[value as DeviceBadge]}`,
+                label: t('activeFilter.badge', {
+                    value: badgeLabel(value as DeviceBadge),
+                }),
             })
         )
 
@@ -96,7 +110,7 @@
             list.push({
                 key: 'availability',
                 value,
-                label: DEVICE_AVAILABILITY_LABELS[value as DeviceAvailability],
+                label: availabilityLabel(value as DeviceAvailability),
             })
         )
 
@@ -106,7 +120,10 @@
         ) {
             list.push({
                 key: 'price',
-                label: `${filters.value.minPrice}–${filters.value.maxPrice} MDL`,
+                label: t('activeFilter.price', {
+                    min: filters.value.minPrice,
+                    max: filters.value.maxPrice,
+                }),
             })
         }
 
@@ -115,9 +132,7 @@
 
     const activeFilterCount = computed(() => activeFilters.value.length)
     const isSidebarVisible = computed(() => width.value >= 768)
-    const selectedSortLabel = computed(
-        () => DEVICE_SORT_LABELS[filters.value.sort]
-    )
+    const selectedSortLabel = computed(() => sortLabel(filters.value.sort))
 
     const toggleFiltersModal = () => {
         isFiltersModalOpen.value = !isFiltersModalOpen.value
@@ -198,9 +213,9 @@
             />
 
             <p v-if="error" class="catalog-page__error">
-                API error: {{ error.message }}
+                {{ t('catalog.apiError', { message: error.message }) }}
                 <AppButton variant="ghost" @click="refresh()">
-                    Try again
+                    {{ t('common.tryAgain') }}
                 </AppButton>
             </p>
 
@@ -238,13 +253,17 @@
                                 size="17"
                             />
                             <span class="catalog-content__filters-label">
-                                Filters
+                                {{ t('catalog.filters') }}
                             </span>
                             <b v-if="activeFilterCount">
                                 {{ activeFilterCount }}
                             </b>
                         </button>
-                        <b>{{ data.total }} devices found</b>
+                        <b>
+                            {{
+                                t('catalog.devicesFound', { count: data.total })
+                            }}
+                        </b>
                         <div
                             ref="sortDropdown"
                             class="catalog-content__sort"
@@ -256,7 +275,7 @@
                             <button
                                 class="catalog-content__sort-toggle"
                                 type="button"
-                                aria-label="Sort devices"
+                                :aria-label="t('catalog.sortDevices')"
                                 :aria-expanded="isSortDropdownOpen"
                                 aria-haspopup="listbox"
                                 @click.stop="toggleSortDropdown"
@@ -277,7 +296,7 @@
                                 v-if="isSortDropdownOpen"
                                 class="catalog-content__sort-menu"
                                 role="listbox"
-                                aria-label="Sort devices"
+                                :aria-label="t('catalog.sortDevices')"
                             >
                                 <button
                                     v-for="sort in DEVICE_SORT_VALUES"
@@ -298,7 +317,7 @@
                                         size="15"
                                     />
                                     <span v-else />
-                                    {{ DEVICE_SORT_LABELS[sort] }}
+                                    {{ sortLabel(sort) }}
                                 </button>
                             </div>
                         </div>
@@ -322,7 +341,7 @@
                     <div
                         v-if="data.pages > 1"
                         class="pagination"
-                        aria-label="Pagination"
+                        :aria-label="t('catalog.pagination')"
                     >
                         <AppButton
                             variant="ghost"
@@ -330,7 +349,7 @@
                             @click="pushQuery({ page: data.page - 1 })"
                         >
                             <Icon name="lucide:chevron-left" size="16" />
-                            Prev
+                            {{ t('common.previous') }}
                         </AppButton>
                         <AppButton
                             v-for="page in data.pages"
@@ -345,7 +364,7 @@
                             :disabled="data.page >= data.pages"
                             @click="pushQuery({ page: data.page + 1 })"
                         >
-                            Next
+                            {{ t('common.next') }}
                             <Icon name="lucide:chevron-right" size="16" />
                         </AppButton>
                     </div>

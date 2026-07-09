@@ -1,7 +1,11 @@
+<script setup lang="ts">
+    const localePath = useLocalePath()
+</script>
+
 <template>
     <footer class="site-footer">
         <div>
-            <NuxtLink class="site-footer__logo" to="/">
+            <NuxtLink class="site-footer__logo" :to="localePath('/')">
                 <img src="/device-hub-logo.svg" alt="Device Hub" draggable="false"/>
             </NuxtLink>
             <p class="site-footer__description">

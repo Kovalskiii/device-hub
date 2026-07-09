@@ -1,0 +1,96 @@
+{
+    "common": {
+        "brand": "Device Hub",
+        "copyright": "(c) 2026 Device Hub",
+        "loadingPage": "Se incarca pagina",
+        "clear": "Curata",
+        "clearAll": "Curata tot",
+        "tryAgain": "Incearca din nou",
+        "close": "Inchide",
+        "previous": "Inapoi",
+        "next": "Inainte"
+    },
+    "header": {
+        "searchPlaceholder": "Cauta dispozitive...",
+        "switchToLight": "Schimba la tema luminoasa",
+        "switchToDark": "Schimba la tema intunecata",
+        "switchLanguage": "Schimba limba"
+    },
+    "footer": {
+        "tagline": "Modul inteligent de a explora dispozitive."
+    },
+    "hero": {
+        "badge": "Mini catalog de dispozitive",
+        "title": "Device Hub",
+        "description": "Exploreaza smartphone-uri, dispozitive purtabile si accesorii. Cauta, filtreaza si compara specificatiile cheie intr-un catalog curat."
+    },
+    "catalog": {
+        "filters": "Filtre",
+        "devicesFound": "{count} dispozitive gasite",
+        "apiError": "Eroare API: {message}",
+        "sortDevices": "Sorteaza dispozitive",
+        "pagination": "Paginare",
+        "emptyTitle": "Nu s-a gasit nimic",
+        "emptyText": "Incearca sa elimini unele filtre sau sa schimbi textul cautarii.",
+        "resetFilters": "Reseteaza filtrele"
+    },
+    "filters": {
+        "active": "Filtre active",
+        "noActive": "Nu exista filtre active",
+        "categories": "Categorii",
+        "brand": "Brand",
+        "price": "Pret",
+        "availability": "Disponibilitate",
+        "badges": "Etichete",
+        "minimumPrice": "Pret minim",
+        "maximumPrice": "Pret maxim",
+        "minimumPriceSlider": "Slider pret minim",
+        "maximumPriceSlider": "Slider pret maxim",
+        "modalTitle": "Filtre",
+        "closeFilters": "Inchide filtrele"
+    },
+    "activeFilter": {
+        "search": "Cautare: {value}",
+        "category": "Categorie: {value}",
+        "brand": "Brand: {value}",
+        "badge": "Eticheta: {value}",
+        "price": "{min}–{max} MDL"
+    },
+    "device": {
+        "image": "Imagine {name}",
+        "notFound": "Dispozitivul nu a fost gasit",
+        "fallbackName": "Dispozitiv",
+        "detailsDescription": "Specificatii detaliate si pret pentru {name}.",
+        "catalog": "Catalog",
+        "backToCatalog": "Inapoi la catalog",
+        "techSpecs": "Specificatii tehnice",
+        "brand": "Brand",
+        "category": "Categorie",
+        "availability": "Disponibilitate"
+    },
+    "category": {
+        "smartphone": "Smartphone-uri",
+        "wearable": "Dispozitive purtabile",
+        "accessory": "Accesorii"
+    },
+    "badge": {
+        "top": "Top",
+        "new": "Nou",
+        "sale": "Reducere"
+    },
+    "availability": {
+        "in": "In stoc",
+        "out": "Stoc epuizat"
+    },
+    "sort": {
+        "popular": "Populare",
+        "price-asc": "Pret: crescator",
+        "price-desc": "Pret: descrescator",
+        "name": "Denumire"
+    },
+    "spec": {
+        "display": "Ecran",
+        "storage": "Memorie",
+        "battery": "Baterie"
+    }
+}

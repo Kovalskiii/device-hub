@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@nuxt/icon', '@nuxt/image', '@nuxtjs/google-fonts'],
+    modules: [
+        '@nuxt/icon',
+        '@nuxt/image',
+        '@nuxtjs/google-fonts',
+        '@nuxtjs/i18n',
+    ],
 
     components: [{ path: '~/components', pathPrefix: false }],
 
@@ -39,6 +44,33 @@ export default defineNuxtConfig({
     image: {
         quality: 86,
         format: ['webp'],
+    },
+
+    i18n: {
+        defaultLocale: 'en',
+        strategy: 'prefix_except_default',
+        langDir: 'locales',
+        detectBrowserLanguage: false,
+        locales: [
+            {
+                code: 'en',
+                name: 'EN',
+                language: 'en-US',
+                file: 'en.json',
+            },
+            {
+                code: 'ro',
+                name: 'RO',
+                language: 'ro-RO',
+                file: 'ro.json',
+            },
+            {
+                code: 'ru',
+                name: 'RU',
+                language: 'ru-RU',
+                file: 'ru.json',
+            },
+        ],
     },
 
     nitro: {

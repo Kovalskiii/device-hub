@@ -1,0 +1,96 @@
+{
+    "common": {
+        "brand": "Device Hub",
+        "copyright": "(c) 2026 Device Hub",
+        "loadingPage": "Loading page",
+        "clear": "Clear",
+        "clearAll": "Clear all",
+        "tryAgain": "Try again",
+        "close": "Close",
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "header": {
+        "searchPlaceholder": "Search devices...",
+        "switchToLight": "Switch to light theme",
+        "switchToDark": "Switch to dark theme",
+        "switchLanguage": "Switch language"
+    },
+    "footer": {
+        "tagline": "The smart way to choose devices."
+    },
+    "hero": {
+        "badge": "Mini device catalog",
+        "title": "Device Hub",
+        "description": "Explore smartphones, wearables and accessories. Search, filter and compare key specifications in one clean catalog."
+    },
+    "catalog": {
+        "filters": "Filters",
+        "devicesFound": "{count} devices found",
+        "apiError": "API error: {message}",
+        "sortDevices": "Sort devices",
+        "pagination": "Pagination",
+        "emptyTitle": "Nothing found",
+        "emptyText": "Try removing some filters or changing your search query.",
+        "resetFilters": "Reset filters"
+    },
+    "filters": {
+        "active": "Active filters",
+        "noActive": "No active filters",
+        "categories": "Categories",
+        "brand": "Brand",
+        "price": "Price",
+        "availability": "Availability",
+        "badges": "Badges",
+        "minimumPrice": "Minimum price",
+        "maximumPrice": "Maximum price",
+        "minimumPriceSlider": "Minimum price slider",
+        "maximumPriceSlider": "Maximum price slider",
+        "modalTitle": "Filters",
+        "closeFilters": "Close filters"
+    },
+    "activeFilter": {
+        "search": "Search: {value}",
+        "category": "Category: {value}",
+        "brand": "Brand: {value}",
+        "badge": "Badge: {value}",
+        "price": "{min}-{max} MDL"
+    },
+    "device": {
+        "image": "{name} image",
+        "notFound": "Device not found",
+        "fallbackName": "Device",
+        "detailsDescription": "Detailed specifications and price for {name}.",
+        "catalog": "Catalog",
+        "backToCatalog": "Back to catalog",
+        "techSpecs": "Technical specifications",
+        "brand": "Brand",
+        "category": "Category",
+        "availability": "Availability"
+    },
+    "category": {
+        "smartphone": "Smartphones",
+        "wearable": "Wearables",
+        "accessory": "Accessories"
+    },
+    "badge": {
+        "top": "Top",
+        "new": "New",
+        "sale": "Sale"
+    },
+    "availability": {
+        "in": "In stock",
+        "out": "Out of stock"
+    },
+    "sort": {
+        "popular": "Popular",
+        "price-asc": "Price: low to high",
+        "price-desc": "Price: high to low",
+        "name": "Name"
+    },
+    "spec": {
+        "display": "Display",
+        "storage": "Storage",
+        "battery": "Battery"
+    }
+}

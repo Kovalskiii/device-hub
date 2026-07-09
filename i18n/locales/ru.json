@@ -1,0 +1,96 @@
+{
+    "common": {
+        "brand": "Device Hub",
+        "copyright": "(c) 2026 Device Hub",
+        "loadingPage": "Загрузка страницы",
+        "clear": "Очистить",
+        "clearAll": "Очистить все",
+        "tryAgain": "Повторить",
+        "close": "Закрыть",
+        "previous": "Назад",
+        "next": "Далее"
+    },
+    "header": {
+        "searchPlaceholder": "Поиск устройств...",
+        "switchToLight": "Включить светлую тему",
+        "switchToDark": "Включить темную тему",
+        "switchLanguage": "Переключить язык"
+    },
+    "footer": {
+        "tagline": "Умный способ выбирать устройства."
+    },
+    "hero": {
+        "badge": "Мини-каталог устройств",
+        "title": "Device Hub",
+        "description": "Смотрите смартфоны, носимые устройства и аксессуары. Ищите, фильтруйте и сравнивайте ключевые характеристики в одном удобном каталоге."
+    },
+    "catalog": {
+        "filters": "Фильтры",
+        "devicesFound": "Найдено устройств: {count}",
+        "apiError": "Ошибка API: {message}",
+        "sortDevices": "Сортировка устройств",
+        "pagination": "Пагинация",
+        "emptyTitle": "Ничего не найдено",
+        "emptyText": "Попробуйте убрать часть фильтров или изменить поисковый запрос.",
+        "resetFilters": "Сбросить фильтры"
+    },
+    "filters": {
+        "active": "Активные фильтры",
+        "noActive": "Нет активных фильтров",
+        "categories": "Категории",
+        "brand": "Бренд",
+        "price": "Цена",
+        "availability": "Наличие",
+        "badges": "Метки",
+        "minimumPrice": "Минимальная цена",
+        "maximumPrice": "Максимальная цена",
+        "minimumPriceSlider": "Ползунок минимальной цены",
+        "maximumPriceSlider": "Ползунок максимальной цены",
+        "modalTitle": "Фильтры",
+        "closeFilters": "Закрыть фильтры"
+    },
+    "activeFilter": {
+        "search": "Поиск: {value}",
+        "category": "Категория: {value}",
+        "brand": "Бренд: {value}",
+        "badge": "Метка: {value}",
+        "price": "{min}–{max} MDL"
+    },
+    "device": {
+        "image": "Изображение {name}",
+        "notFound": "Устройство не найдено",
+        "fallbackName": "Устройство",
+        "detailsDescription": "Подробные характеристики и цена для {name}.",
+        "catalog": "Каталог",
+        "backToCatalog": "Вернуться в каталог",
+        "techSpecs": "Технические характеристики",
+        "brand": "Бренд",
+        "category": "Категория",
+        "availability": "Наличие"
+    },
+    "category": {
+        "smartphone": "Смартфоны",
+        "wearable": "Носимые устройства",
+        "accessory": "Аксессуары"
+    },
+    "badge": {
+        "top": "Топ",
+        "new": "Новинка",
+        "sale": "Скидка"
+    },
+    "availability": {
+        "in": "В наличии",
+        "out": "Нет в наличии"
+    },
+    "sort": {
+        "popular": "Популярные",
+        "price-asc": "Цена: по возрастанию",
+        "price-desc": "Цена: по убыванию",
+        "name": "Название"
+    },
+    "spec": {
+        "display": "Экран",
+        "storage": "Память",
+        "battery": "Батарея"
+    }
+}
