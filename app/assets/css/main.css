@@ -1,4 +1,5 @@
 @import './pages/index.css';
+@import './pages/device-detail.css';
 
 html {
     color: var(--color-text);
