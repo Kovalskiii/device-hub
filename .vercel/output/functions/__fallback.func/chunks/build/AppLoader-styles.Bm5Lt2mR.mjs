@@ -1,0 +1,8 @@
+globalThis.__timing__.logStart('Load chunks/build/AppLoader-styles.Bm5Lt2mR');const AppLoader_css_vue_type_style_index_0_src_true_lang = ".app-loader{position:fixed;inset:0;z-index:9999;display:flex;width:100%;align-items:center;justify-content:center;overflow:hidden;overscroll-behavior:none;touch-action:none;background:linear-gradient(90deg,color-mix(in srgb,var(--color-primary) 31%,transparent) 0,transparent 30%,transparent 70%,color-mix(in srgb,var(--color-primary) 31%,transparent) 100%)}.app-loader__backdrop{position:absolute;inset:0;z-index:1;background:#0003;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}.app-loader__spinner{position:relative;z-index:2;width:56px;height:56px;border-left:3px solid;border-color:color-mix(in srgb,var(--color-primary) 18%,transparent);border-top:3px solid color-mix(in srgb,var(--color-primary) 62%,#fff);border-right:3px solid var(--color-primary);border-bottom:3px solid color-mix(in srgb,var(--color-primary) 26%,transparent);border-radius:50%;animation:app-loader-spin .85s linear infinite;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--color-primary) 40%,transparent))}.app-loader-enter-active,.app-loader-leave-active{transition:opacity .18s ease}.app-loader-enter-from,.app-loader-leave-to{opacity:0}@keyframes app-loader-spin{to{transform:rotate(1turn)}}@media(prefers-reduced-motion:reduce){.app-loader__spinner{animation:none}.app-loader-enter-active,.app-loader-leave-active{transition:none}}";
+
+const AppLoaderStyles_Bm5Lt2mR = [
+  AppLoader_css_vue_type_style_index_0_src_true_lang
+];
+
+export { AppLoaderStyles_Bm5Lt2mR as default };;globalThis.__timing__.logEnd('Load chunks/build/AppLoader-styles.Bm5Lt2mR');
+//# sourceMappingURL=AppLoader-styles.Bm5Lt2mR.mjs.map

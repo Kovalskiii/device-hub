@@ -20,6 +20,13 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'Device Hub',
+            link: [
+                {
+                    rel: 'icon',
+                    type: 'image/x-icon',
+                    href: '/favicon.ico',
+                },
+            ],
             meta: [
                 {
                     name: 'description',
