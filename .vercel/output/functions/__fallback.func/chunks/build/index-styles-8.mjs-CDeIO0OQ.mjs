@@ -1,4 +1,0 @@
-globalThis.__timing__.logStart('Load chunks/build/index-styles-8-CDeIO0OQ.mjs');const EmptyState_css_vue_type_style_index_0_src_true_lang = ".empty-state{grid-column:1/-1;padding:56px 20px;text-align:center;background:var(--color-surface);border:1px dashed var(--color-border-strong);border-radius:var(--radius)}.empty-state div{display:grid;place-items:center;width:76px;height:76px;margin:0 auto 18px;color:var(--color-primary);background:var(--color-primary-soft);border-radius:var(--radius)}.empty-state h2{margin:0 0 8px}.empty-state p{margin:0 0 22px;color:var(--color-muted)}.empty-state .app-button{display:inline-flex;align-items:center;gap:8px}";
-
-export { EmptyState_css_vue_type_style_index_0_src_true_lang as E };;globalThis.__timing__.logEnd('Load chunks/build/index-styles-8-CDeIO0OQ.mjs');
-//# sourceMappingURL=index-styles-8.mjs-CDeIO0OQ.mjs.map
