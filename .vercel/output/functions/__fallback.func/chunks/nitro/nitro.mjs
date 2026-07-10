@@ -4625,7 +4625,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "c273a6f3-1ca6-4444-9c50-165471caaf1e",
+    "buildId": "abb4780b-c452-4b1e-873e-887fece49555",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -6133,7 +6133,7 @@ function findBrowserLocale(locales, browserLocales) {
   return matchedLocales.sort(compareBrowserLocale).at(0)?.code ?? "";
 }
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"Device-hub clean and user-friendly website for exploring electronic devices"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[],"noscript":[],"title":"Device Hub"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"Device-hub clean and user-friendly website for exploring electronic devices"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Device Hub"};
 
 const appRootTag = "div";
 
