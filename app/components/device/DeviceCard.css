@@ -27,7 +27,8 @@
 .device-card__image-wrap {
     display: grid;
     place-items: center;
-    height: 112px;
+    height: 100%;
+    min-height: 112px;
     margin: 4px 0 8px;
     border-radius: 8px;
     background: linear-gradient(
@@ -149,7 +150,8 @@
     }
 
     .device-card__image-wrap {
-        height: 200px;
+        height: 100%;
+        min-height: 200px;
         margin: 8px 0 10px;
     }
 
